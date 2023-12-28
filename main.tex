@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vedic Nerd - Resume LaTeX Template
+%
+% Original author:
+% Ganesh Mohan (http://about.me/ganesh.mohan)
+%
+% Github repository:
+% https://github.com/ganesh2shiv/resume-latex-template
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{fontawesome}
+\usepackage{setspace}
+
+% Packages found through https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+% To make footnote at end
+\usepackage{lipsum}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+% DEFINITIONS FOR RESUME
+
+\textheight=10in
+\pagestyle{fancy}
+\raggedright
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\setlength{\hoffset}{-2pt}
+\setlength{\footskip}{20pt}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+\newcommand{\contact}[3]{
+\vspace*{5pt}
+\begin{center}
+{\LARGE \scshape {#1}}\\
+\vspace{3pt}
+#2 
+\vspace{2pt}
+#3
+\end{center}
+\vspace*{-8pt}
+}
+
+\newcommand{\header}[1]{{
+\hspace*{-15pt}\vspace*{6pt} \textsc{#1}} \vspace*{-6pt} 
+\lineunder
+}
+
+\newcommand{\lineunder}{
+\vspace*{-8pt} \\ \hspace*{-18pt} 
+\hrulefill \\
+}
+
+\newcommand{\content}{
+\vspace*{2pt}%
+}
+
+\newcommand{\college}[5]{\vspace*{2pt}% 
+\textbf{#1} \labelitemi #2 \labelitemi #3 \hfill #4 \\ #5 
+\vspace*{5pt}
+}
+
+\newcommand{\school}[4]{
+\textbf{#1} \labelitemi #2 \hfill #3 \\ #4 \vspace*{5pt}
+}
+
+\newcommand{\employer}[4]{{
+\vspace*{2pt}%
+\textbf{#1} #2 \hfill #3\\ #4 \vspace*{2pt}}
+}
+
+\newcommand{\project}[4]{{
+\vspace*{2pt}% 
+\textbf{#1} #2 \hfill #3\\ \textit{#4} \vspace*{2pt}}
+}
+
+\renewcommand{\labelitemi}{
+$\vcenter{\hbox{\tiny$\bullet$}}$\hspace*{3pt}
+}
+
+\renewcommand{\labelitemii}{
+$\vcenter{\hbox{\tiny$\bullet$}}$\hspace*{-3pt}
+}
+
+\newenvironment{bullet-list-major}{
+\begin{list}{\labelitemii}{\setlength\leftmargin{3pt} 
+\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}\end{list}
+}
+
+\newenvironment{bullet-list-minor}{
+\begin{list}{\labelitemii}{\setlength\leftmargin{15pt} 
+\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}\end{list}
+}
+
+\cfoot{
+Last updated: July 7, 2018
+}
+
+\rfoot{
+Page $\thepage\hspace*{3pt}\vert\hspace*{3pt}\pageref{LastPage}$
+}
+
+% END RESUME DEFINITIONS
+
+\begin{document}
+
+\small
+\smallskip
+\vspace*{-44pt}
+
+\contact{Christopher Dettloff}
+{\faEnvelope\ dettloffchris@gmail.com \labelitemi \faPhone\ 734.558.9201 \labelitemi \faHome\ www.chrisdettloff.com \labelitemi \faGithub\ chrisdettloff }
+
+\vspace*{15pt}%
+\header{Work Experience}
+
+    \employer{Cloud Engineer}{-- Cardinal Health}{August 2022 -- Present}{Remote}
+	\begin{bullet-list-minor}
+	\item Designed and implemented cloud infrastructure using Terraform for projects using GCP and AWS, including deployment of virtual machines, networking, storage solutions, and DNS configuration.
+	\vspace{2pt}
+	\item Deployed and configured Linux systems in the cloud for SAP and HANA installations, ensuring high availability and performance
+    \vspace{2pt}
+	\item Utilized Event Driven Architecture principles to help enable teams implement scalable, real-time data processing pipelines using Kafka
+    \vspace{2pt}
+	\item Enabled and coached application teams on simple cloud tasks to increase task turnaround time.
+    \end{bullet-list-minor}
+    
+    \employer{Cloud Engineer}{-- DaySmart Software}{September 2020 -- August 2022}{Ann Arbor, MI}
+    \begin{bullet-list-minor}
+    \item Built and maintained scripted CI/CD pipelines with Jenkins and Github Actions
+    \vspace{2pt}
+    \item Wrote infrastructure as code for our legacy applications and new serverless application platform using AWS CDK/Cloudformation and Terraform respectivly
+    \vspace{2pt}
+    \item Migrated our .NET applications to docker containers on AWS ECS reducing infrastructure spending by 30\%
+    \vspace{2pt}
+    \item Application and infrastructure monitoring using New Relic, Datadog, and Cloudwatch on both lower and production environments
+    \end{bullet-list-minor}
+
+    \employer{Software Development Intern}{-- DaySmart Software}{January 2020 -- September 2020}{Ann Arbor, MI}
+	\begin{bullet-list-minor}
+	\item Worked with QA team on expanding application testing; writing step definitions and feature files in Ruby using Selenium with Cucumber framework
+	\vspace{2pt}
+	\item Tracked bugs and managed tickets using JIRA and Asana
+    \end{bullet-list-minor}
+
+\vspace{4pt}
+\header{Education}
+    \school{University of Michigan - Dearborn}{Dearborn, MI}{August 2016 -- August 2020}
+    {\textit{Bachelors of Science \labelitemi Software Engineering\labelitemi Concentration: Web Engineering}}
+
+\vspace*{8pt}%
+\header{Projects}
+    
+    \project{Infrastructure as Code Library}{ -- DaySmart}{ Oct 2020 -- July 2022}{ Ann Arbor, MI}
+	\begin{bullet-list-minor}
+	\item Contributed to the company's open-source AWS CDK Infrastructure as Code (IaC) construct library, addressing common web app use cases and reducing deployment time of new applications.
+    \end{bullet-list-minor}
+    
+    \project{.NET App Suite Containerization}{ -- DaySmart}{ Feb 2021 -- Dec 2021 }{ Ann Arbor, MI}
+	\begin{bullet-list-minor}
+	\item Migrated our .NET app suite to run in containers in AWS ECS. Included writing IaC, building docker images and deploying in Jenkins pipeline, heavily reducing infrastructure costs 30\%, and allowing for quicker scalability in lower and production environments
+    \end{bullet-list-minor}
+    
+    \project{OS Upgrade Project}{ -- Cardinal Health}{ Dec 2022 -- Present}{ Dublin, OH }
+    \begin{bullet-list-minor}
+    \item Led a cross-functional team in the upgrade of legacy Windows and Linux operating systems in GCP and AWS for dozens of application teams
+    \item Collaborated with engineers on creating inplace upgrade scripts written in bash for RHEL 7 - 8, SUSE 12 - 15, and RHEL 7 - Rocky 8
+    \item Utilized Terraform to automate the deployment and configuration of the upgraded systems
+    \end{bullet-list-minor}
+
+\vspace*{8pt}%
+\header{Technical Skills}
+    \begin{bullet-list-major}
+    \item Programming languages: Python, Typescript, Shell/Bash, Powershell
+    \vspace{2pt}
+    \item Platforms/Tools: AWS, GCP, Jenkins, Git, Linux, Kafka, env0
+    \vspace{2pt}
+    \item Monitoring/logging: New Relic, Datadog, Dynatrace, Splunk
+    \vspace{2pt}
+    \item Infrastructure as Code: Terraform, AWS CDK, Cloudformation
+    \end{bullet-list-major}
+    
+\vspace*{8pt}%
+\header{Certifications}
+    \begin{bullet-list-major}
+    \item GCP Professional Cloud Architect - Professional; 2023
+    \vspace{2pt}
+    \item AWS Certified Developer - Associate; 2021
+    \end{bullet-list-major}
+
+
+
+\end{document}
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
